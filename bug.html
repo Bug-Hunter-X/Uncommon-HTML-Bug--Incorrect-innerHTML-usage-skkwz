@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is visible.
+  </div>
+  <script>
+    // Incorrectly using innerHTML to add an element with nested elements. 
+    document.getElementById('myDiv').innerHTML = "<p>This is a <span>paragraph</span> inside a div.</p>";
+    // This will lead to unexpected behavior, especially when it comes to event handling for the nested elements
+    document.getElementById('myDiv').innerHTML = "<div onclick='alert("clicked!")'>Click Me!</div>";
+  </script>
+</body>
+</html>
