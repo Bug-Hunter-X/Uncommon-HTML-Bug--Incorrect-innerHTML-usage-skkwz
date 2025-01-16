@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is visible.
+  </div>
+  <script>
+    // Correct way to add nested elements using DOM methods
+    const newParagraph = document.createElement('p');
+    const newSpan = document.createElement('span');
+    newSpan.textContent = 'paragraph';
+    newParagraph.appendChild(newSpan);
+    newParagraph.textContent = 'This is a ';
+    document.getElementById('myDiv').appendChild(newParagraph);
+
+    const newDiv = document.createElement('div');
+    newDiv.textContent = 'Click Me!';
+    newDiv.addEventListener('click', function(){
+      alert('clicked!');
+    });
+    document.getElementById('myDiv').appendChild(newDiv);
+  </script>
+</body>
+</html>
